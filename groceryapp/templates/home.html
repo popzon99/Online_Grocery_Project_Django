@@ -1,0 +1,258 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="w-100" src="{%static 'images/carousel-1.jpg' %}" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-lg-7">
+                                    <h1 class="display-2 mb-5 animated slideInDown">Where freshness meets flavor, and health meets convenience</h1>
+                                    <a href="/user-product/0/" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="w-100" src="{% static 'images/carousel-2.jpg' %}" alt="Image">
+                    <div class="carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-start">
+                                <div class="col-lg-7">
+                                    <h1 class="display-2 mb-5 animated slideInDown"> Fueling your appetite for high-quality, discounted products</h1>
+                                    <a href="/user-product/0/" class="btn btn-primary rounded-pill py-sm-3 px-sm-5">Products</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel End -->
+
+    {% load static custom_tags %}
+    <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
+    <br>
+    <br>
+    <br>
+    <div class="d-flex" id="wrapper">
+      <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">
+    Start Filtering</div>
+          <div class="list-group list-group-flush">
+            <a href="{% url 'user_product' 0 %}" class="list-group-item list-group-item-action bg-light">
+    All Product</a>
+            {% for i in allcategory %}
+              <a href="{% url 'user_product' i.id %}" class="list-group-item list-group-item-action bg-light">
+    {{i.name}}</a>
+            {% endfor %}
+          </div>
+        </div>
+     
+        <div id="page-content-wrapper">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <button class="btn btn-primary" id="menu-toggle">
+    <i class="fa fa-bars">
+    </i>
+    </button>
+            <h4 style="color:red;margin-left:30%">
+    All {{category.name}} Products</h4>
+          </nav>
+          <div class="container-fluid mt-2">
+              <div class="container-fluid">
+                  <div class="row w-100 mx-auto">
+                    {% for j in product %}                   <div class="col-md-3">
+                        <div class="card" align="center" style="border:1px solid lightgrey">
+                            <img class="card-img-top img-thumbnail" src="{{j.image.url}}" style="width:100%;height:220px" alt="card-img">
+                            <div class="card-body">
+                              <h6 class="card-title">{{j.name}} Rs.
+                                <del>{{j.price}}</del>
+                                {{j.id|applydiscount}}
+                              </h6>
+                              <p class="card-text" style="font-size:14px">
+                               {{j.description}}</p>
+                                <a href="/add-to-cart/{{j.id}}/" class="btn btn-primary">
+                                    <i class="fa fa-shopping-cart"></i> Add to cart
+                                </a>
+                                <a href="/product-detail/{{j.id}}/" class="btn btn-warning">
+                                    <i class="fa fa-info" style="font-size:22px"></i>
+                                </a>
+                            </div>
+                          </div>
+                      </div>
+                    {% empty %}
+                      <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                              <img src="{% static 'images/empty.jpg' %}" />
+                            </div>
+                          </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <script>
+      $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+      });
+    </script>
+
+    <!-- Firm Visit Start -->
+    <div class="container-fluid bg-primary bg-icon mt-5 py-6">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-md-7 wow fadeIn" data-wow-delay="0.1s">
+                    <h1 class="display-5 text-white mb-3">Visit Our Firm</h1>
+                    <p class="text-white mb-0">Come visit our esteemed establishment, Pachakari.shop, and embark on a delightful journey of exploring and acquiring the finest selection of fresh fruits, vegetables, and dry fruits.</p>
+                </div>
+                <div class="col-md-5 text-md-end wow fadeIn" data-wow-delay="0.5s">
+                    <a class="btn btn-lg btn-secondary rounded-pill py-3 px-5" href="">Visit Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Firm Visit End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid bg-light bg-icon py-6 mb-5">
+        <div class="container">
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-3">Customer Review</h1>
+                <p></p>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                <div class="testimonial-item position-relative bg-white p-5 mt-4">
+                    <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                    <p class="mb-4">"I was pleasantly surprised by the exceptional quality and freshness of the fruits and vegetables I received from Pachakari.shop; it truly elevated the taste and health benefits of my meals!"</p>
+                    <div class="d-flex align-items-center">
+                        <img class="flex-shrink-0 rounded-circle" src="{%static 'images/messi.jpg' %}" alt="">
+                        <div class="ms-3">
+                            <h5 class="mb-1">Messi</h5>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item position-relative bg-white p-5 mt-4">
+                    <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                    <p class="mb-4">The convenience of tracking my order and having the option to easily cancel or return items made my shopping experience with Pachakari.shop stress-free and enjoyable.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="flex-shrink-0 rounded-circle" src="{%static 'images/profile2.jpeg' %}" alt="">
+                        <div class="ms-3">
+                            <h5 class="mb-1">Popson</h5>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item position-relative bg-white p-5 mt-4">
+                    <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                    <p class="mb-4">I highly recommend Pachakari.shop for their wide variety of organic products; knowing that I'm consuming wholesome and chemical-free produce gives me peace of mind.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="flex-shrink-0 rounded-circle" src="{%static 'images/jhoncena.jpg' %}" alt="">
+                        <div class="ms-3">
+                            <h5 class="mb-1">John Cena</h5>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item position-relative bg-white p-5 mt-4">
+                    <i class="fa fa-quote-left fa-3x text-primary position-absolute top-0 start-0 mt-n4 ms-5"></i>
+                    <p class="mb-4">The discounted prices at Pachakari.shop allowed me to save money without compromising on the quality of the fruits, vegetables, and dry fruits I purchased - a win-win situation!</p>
+                    <div class="d-flex align-items-center">
+                        <img class="flex-shrink-0 rounded-circle" src="{%static 'images/ronaldo.jpg' %}" alt="">
+                        <div class="ms-3">
+                            <h5 class="mb-1">Cristiano Ronaldo</h5>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+
+
+    <!-- Blog Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-3">Latest Blog</h1>
+                <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <img class="img-fluid" src="{%static 'images/blog-1.jpg' %}" alt="">
+                    <div class="bg-light p-4">
+                        <a class="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
+                        <div class="text-muted border-top pt-4">
+                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
+                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>01 Jan, 2045</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <img class="img-fluid" src="{%static 'images/blog-2.jpg' %}" alt="">
+                    <div class="bg-light p-4">
+                        <a class="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
+                        <div class="text-muted border-top pt-4">
+                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
+                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>01 Jan, 2045</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <img class="img-fluid" src="{%static 'images/blog-3.jpg' %}" alt="">
+                    <div class="bg-light p-4">
+                        <a class="d-block h5 lh-base mb-4" href="">How to cultivate organic fruits and vegetables in own firm</a>
+                        <div class="text-muted border-top pt-4">
+                            <small class="me-3"><i class="fa fa-user text-primary me-2"></i>Admin</small>
+                            <small class="me-3"><i class="fa fa-calendar text-primary me-2"></i>01 Jan, 2045</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+    
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+    {% endblock body %}
+</body>
+
+</html>

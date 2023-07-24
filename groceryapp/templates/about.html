@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- About Start -->
+    
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                        <img class="img-fluid w-100" src="{% static 'images/about.jpg' %}">
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <br>
+                   <br>
+                    <h1 class="display-5 mb-4">Best Organic Fruits And Vegetables</h1>
+                    <p class="mb-4">Welcome to Pachakari.shop - Your One-Stop Online Shop for Fresh Fruits, Vegetables, and Dry Fruits!</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>At Pachakari.shop, we are passionate about bringing you the freshest and highest quality produce right to your doorstep. With a wide range of fruits, vegetables, and dry fruits, we aim to make your shopping experience convenient, affordable, and enjoyable.</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>We understand the importance of consuming fresh and healthy food, and that's why we source our products from trusted farmers and suppliers who share our commitment to quality. Our rigorous selection process ensures that only the finest and freshest items make it to your shopping cart. You can rest assured that every purchase you make from Pachakari.shop is of exceptional quality.</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>One of our primary goals is to make online grocery shopping a seamless and hassle-free experience for you. With our user-friendly website, you can easily navigate through our extensive collection of fruits, vegetables, and dry fruits. Find your favorites, discover new varieties, and explore seasonal produce all in one place.</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Feature Start -->
+    <div class="container-fluid bg-light bg-icon my-5 py-6">
+        <div class="container">
+            <div class="section-header text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-5 mb-3">Our Features</h1>
+                <p>Discover the Best Online Shopping Experience for Fresh Fruits, Vegetables, and Dry Fruits at Pachakari.shop!</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{%static 'images/icon-1.png' %}" alt="">
+                        <h4 class="mb-3">Natural Process</h4>
+                        <p class="mb-4">At Pachakari.shop, we follow a natural process to ensure that our fruits, vegetables, and dry fruits are sourced, handled, and delivered to you with utmost care, preserving their freshness and quality.</p>
+                        <a class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{%static 'images/icon-2.png' %}" alt="">
+                        <h4 class="mb-3">Organic Products</h4>
+                        <p class="mb-4">We take pride in offering a wide selection of organic fruits, vegetables, and dry fruits at Pachakari.shop, providing you with healthier options that are free from harmful pesticides and chemicals.</p>
+                        <a class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="bg-white text-center h-100 p-4 p-xl-5">
+                        <img class="img-fluid mb-4" src="{%static 'images/icon-3.png' %}" alt="">
+                        <h4 class="mb-3">Biologically Safe</h4>
+                        <p class="mb-4">Your well-being is our priority, which is why we guarantee that all the products available at Pachakari.shop are biologically safe, meeting the highest standards of quality and hygiene.</p>
+                        <a class="btn btn-outline-primary border-2 py-2 px-4 rounded-pill" href="">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Feature End -->
+{% endblock body %}

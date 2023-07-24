@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<link rel="stylesheet" href=" {% static 'css/mystyle.css' %}  ">
+<body id="login" style = "background-image : url({% static 'images/carousel-2.jpg' %})">
+
+<class="mt-5 ">
+
+<div class="container mt-5">
+  <br>
+  <br>
+  <br>
+
+      <div class="row ">
+        <div class="col-lg-6 ">
+          <div class="card mt-5 bg-light">
+            <div class="card-title text-center mt-3">
+                <img src="{% static 'images/cat.png' %}" width="150" height="150">
+                <h2 class="text-dark">User Login</h2>
+            </div>
+            <div class="card-body">
+              <form method="post">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-user fa-2x"></i>
+                      </span>
+                    </div>
+                    <input type="text" name="username" class="form-control py-4" placeholder="Email ID">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="fa fa-lock fa-2x"></i>
+                      </span>
+                    </div>
+                    <input type="password" name="password" class="form-control py-4" placeholder="Password">
+                </div>
+                <input type="submit" value="Login" class="btn btn-success px-5">
+                <a href="{% url 'registration' %}" class="float-right mt-2 text-dark">Create Account <i class="fas fa-angle-double-right"></i></a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock body %}
